@@ -8,14 +8,15 @@ import './style.css';
 const App = () => {
   const [cart, setCart] = useState([]);
   const [selectedVendor, setSelectedVendor] = useState("All");
+  const [user, setUser] = useState(null); // 🔥 USER STATE
 
-  // 🔥 FILTER LOGIC
+  // FILTER
   const filteredFood =
     selectedVendor === "All"
       ? foodData
       : foodData.filter(item => item.vendor === selectedVendor);
 
-  // 🔥 CART FUNCTIONS
+  // CART FUNCTIONS
   const addToCart = (item) => {
     const existing = cart.find(i => i.id === item.id);
 
@@ -50,7 +51,10 @@ const App = () => {
 
   return (
     <div className="main">
-      <Navbar setSelectedVendor={setSelectedVendor} />
+      <Navbar 
+        setSelectedVendor={setSelectedVendor}
+        user={user}
+      />
 
       <div className="contentt">
         <div className="c-leftt">
@@ -68,6 +72,7 @@ const App = () => {
 
         <Cart
           cart={cart}
+          user={user}
           increaseQty={increaseQty}
           decreaseQty={decreaseQty}
           removeItem={removeItem}
