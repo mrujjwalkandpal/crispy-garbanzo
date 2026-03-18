@@ -17,13 +17,11 @@ const Navbar = () => {
                                                                                 <span className="nav-label">Switch</span>
                                                                                         </button>
                                                                                                 <a href="/profile" className="nav-item">
-                                                                                                          <span className="icon-placeholder">👤</span>
+                                                                                                          <span id="profile" className="icon-placeholder">👤</span>
                                                                                                                                                                                                                                               </a>
                                                                                                                                     
                                                                                                                                                                         <button className="nav-item" aria-label="Notification">
-                                                                                                                                                                                  <span className="icon-placeholder">&#x1F514;</span>
-                                                                                                                                                                                            <span className="nav-label"></span>
-                                                                                                                                                                                                      <span className="badge">3</span>
+                                                                                                                                                                                  <span id="notification" className="icon-placeholder">🔔</span>
                                                                                                                                                                                                               </button>
                                                                                                                                                                                                                     </nav>
                                                                                                                                                                                                                         </div>
