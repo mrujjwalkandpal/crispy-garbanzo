@@ -1,63 +1,29 @@
 import React from 'react';
 
-const Cart = ({ cart, increaseQty, decreaseQty, removeItem }) => {
-
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.qty,
-    0
-  );
-
+const FoodCard = ({ item, addToCart }) => {
   return (
-    <div className="c-rightt">
-      <div className="c-title">your cart</div>
+    <div className="pro-food-card">
+      <div className="card-image-box">
+        <img src={item.image} alt={item.name} className="pro-food-img" />
+      </div>
 
-      {cart.length === 0 && <p>No items yet 😢</p>}
+      <div className="pro-card-info">
+        <h3 className="pro-food-name">{item.name}</h3>
+        <p className="pro-vendor">Sold by: {item.vendor}</p>
 
-      {cart.map((item) => (
-        <div className="cart-item-box" key={item.id}>
-          
-          <div className="item-details">
-            <div className="c-item">{item.name}</div>
-            <div className="price">₹{item.price}</div>
-
-            <div className="q-c">
-              <button 
-                className="q-button"
-                onClick={() => decreaseQty(item.id)}
-              >
-                -
-              </button>
-
-              <span className="qty">{item.qty}</span>
-
-              <button 
-                className="q-button"
-                onClick={() => increaseQty(item.id)}
-              >
-                +
-              </button>
-            </div>
-          </div>
+        <div className="pro-card-footer">
+          <div className="pro-price">₹{item.price}</div>
 
           <button 
-            className="remove"
-            onClick={() => removeItem(item.id)}
+            className="pro-add-btn"
+            onClick={() => addToCart(item)}
           >
-            ✖
+            ADD +
           </button>
         </div>
-      ))}
-
-      <div className="c-footer">
-        <div className="cart-total">
-          <span>total</span>
-          <span className="total-price">₹{total}</span>
-        </div>
-
-        <button className="p-order">place order</button>
       </div>
     </div>
   );
 };
 
-export default Cart;
+export default FoodCard;
