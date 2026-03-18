@@ -32,7 +32,7 @@ const Navbar = ({ setSelectedVendor, setSearchQuery, user, setUser }) => {
     <div className="navbar">
 
       <div className="left">
-        <h2>cravee 🍔</h2>
+        <h2>Cravee 🍔</h2>
       </div>
 
       {/* 🔥 SEARCH WORKING */}
@@ -40,7 +40,7 @@ const Navbar = ({ setSelectedVendor, setSearchQuery, user, setUser }) => {
         <input
           type="text"
           className="search-box"
-          placeholder="Search food..."
+          placeholder="What's on your mind.."
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
