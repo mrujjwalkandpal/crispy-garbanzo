@@ -26,16 +26,23 @@ const App = () => {
   });
 
   const addToCart = (item) => {
-    const existing = cart.find(i => i.id === item.id);
 
-    if (existing) {
-      setCart(cart.map(i =>
-        i.id === item.id ? { ...i, qty: i.qty + 1 } : i
-      ));
-    } else {
-      setCart([...cart, { ...item, qty: 1 }]);
-    }
-  };
+  // 🔥 Vendor restriction
+  if (cart.length > 0 && cart[0].vendor !== item.vendor) {
+    alert("You can only order from one vendor at a time!");
+    return;
+  }
+
+  const existing = cart.find(i => i.id === item.id);
+
+  if (existing) {
+    setCart(cart.map(i =>
+      i.id === item.id ? { ...i, qty: i.qty + 1 } : i
+    ));
+  } else {
+    setCart([...cart, { ...item, qty: 1 }]);
+  }
+};
 
   const increaseQty = (id) => {
     setCart(cart.map(i =>
