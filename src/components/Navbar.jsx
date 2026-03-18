@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = ({ setSelectedVendor }) => {
   return (
     <div className="navbar">
 
@@ -18,21 +18,25 @@ const Navbar = () => {
 
       <nav className="right-side">
 
-        <button className="nav-item">
-          <span>⇄</span>
-          <span className="nav-label">Switch</span>
-        </button>
+        {/* 🔥 Vendor Dropdown */}
+        <select
+          className="nav-item"
+          onChange={(e) => setSelectedVendor(e.target.value)}
+        >
+          <option value="All">All</option>
+          <option value="Food Plaza">Food Plaza</option>
+          <option value="Domino's">Domino's</option>
+          <option value="Cafe">Cafe</option>
+          <option value="Subway">Subway</option>
+          <option value="Italian Hub">Italian Hub</option>
+          <option value="Snack Corner">Snack Corner</option>
+          <option value="Street Bites">Street Bites</option>
+        </select>
 
-        <a href="/profile" className="nav-item">
-          <span>👤</span>
-        </a>
-
-        <button className="nav-item">
-          <span>🔔</span>
-        </button>
+        <span className="nav-item">👤</span>
+        <span className="nav-item">🔔</span>
 
       </nav>
-
     </div>
   );
 };
