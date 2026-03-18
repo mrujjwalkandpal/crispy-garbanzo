@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
-import FoodCard from './FoodCard';
-import Cart from './Cart';
+import Navbar from './components/Navbar';
+import FoodCard from './components/FoodCard';
+import Cart from './components/Cart';
 import { foodData } from './data';
 import './style.css';
 
