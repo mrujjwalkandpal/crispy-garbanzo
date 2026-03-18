@@ -350,3 +350,25 @@ button {
     align-items: center;
     gap: 6px;
 }
+
+.profile-container {
+    position: relative;
+}
+
+.profile-box {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    color: black;
+    padding: 12px;
+    border-radius: 8px;
+    width: 180px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.profile-box p {
+    margin: 5px 0;
+    font-size: 14px;
+}
