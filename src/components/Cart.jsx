@@ -32,7 +32,10 @@ const Cart = ({ cart, user, increaseQty, decreaseQty, removeItem }) => {
         <div className="cart-item-box" key={item.id}>
 
           <div className="item-details">
-            <div className="c-item">{item.name}</div>
+            <div className="c-item">
+  {item.name}
+  <div className="vendor-name">{item.vendor}</div>
+</div>
             <div className="price">₹{item.price}</div>
 
             <div className="q-c">
