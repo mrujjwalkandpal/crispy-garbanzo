@@ -22,8 +22,7 @@ const Navbar = () => {
                                                                                                                             </a>
                                                                                                                                     <a href="/cart" className="nav-item">
                                                                                                                                               <span className="icon-placeholder">🛒</span>
-                                                                                                                                                        <span className="nav-label">Cart</span>
-                                                                                                                                                                </a>
+                                                                                                                                                                                                                                                                                                                     </a>
                                                                                                                                                                         <button className="nav-item" aria-label="Notification">
                                                                                                                                                                                   <span className="icon-placeholder">&#x1F514;</span>
                                                                                                                                                                                             <span className="nav-label">Notification</span>
