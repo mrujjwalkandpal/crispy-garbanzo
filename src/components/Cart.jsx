@@ -13,6 +13,7 @@ const Cart = ({ cart, increaseQty, decreaseQty, removeItem }) => {
 
       {cart.length === 0 && <p>No items yet 😢</p>}
 
+
       {cart.map((item) => (
         <div className="cart-item-box" key={item.id}>
           
