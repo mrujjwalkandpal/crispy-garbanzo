@@ -85,7 +85,7 @@ if (cart.length > 0 && cart[0].vendor !== item.vendor) {
         <div className="c-leftt">
           <div className="menu-header">
             <h2 className="menu-title">Explore menu</h2>
-            <p className="menu-sub">what's on your mind</p>
+            <p className="menu-sub">Find the best dishes</p>
           </div>
 
           <div className="food-grid">
