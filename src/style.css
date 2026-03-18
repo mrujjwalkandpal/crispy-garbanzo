@@ -372,45 +372,92 @@ button {
     margin: 5px 0;
     font-size: 14px;
 }
+/* 🔥 LOGIN MODAL BACKDROP */
 .login-modal {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 100;
 }
 
+/* 🔥 LOGIN BOX */
 .login-box {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 250px;
+    padding: 25px;
+    border-radius: 12px;
+    width: 280px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
+/* 🔥 TITLE */
+.login-box h3 {
+    text-align: center;
+    color: #8e44ad;
+    font-weight: 800;
+}
+
+/* 🔥 INPUT */
 .login-box input {
-    padding: 8px;
-    border-radius: 6px;
+    padding: 10px;
+    border-radius: 8px;
     border: 1px solid #ccc;
+    outline: none;
+    transition: 0.2s;
 }
 
+.login-box input:focus {
+    border-color: #8e44ad;
+}
+
+/* 🔥 BUTTONS */
 .login-box button {
-    padding: 8px;
-    border-radius: 6px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
+    border: none;
+    transition: 0.2s;
 }
 
+/* PRIMARY BUTTON */
+.login-box button:first-of-type {
+    background-color: rgb(127, 8, 238);
+    color: white;
+}
+
+.login-box button:first-of-type:hover {
+    background-color: #8e44ad;
+}
+
+/* CANCEL BUTTON */
+.login-box button:last-of-type {
+    background-color: #eee;
+}
+
+.login-box button:last-of-type:hover {
+    background-color: #ddd;
+}
+
+/* 🔥 LOGOUT BUTTON */
 .logout-btn {
     margin-top: 10px;
-    padding: 6px;
-    background: red;
+    padding: 8px;
+    background: rgb(127, 8, 238);
     color: white;
     border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
+
+.logout-btn:hover {
+    background: #8e44ad;
 }
