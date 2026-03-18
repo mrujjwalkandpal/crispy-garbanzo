@@ -372,3 +372,45 @@ button {
     margin: 5px 0;
     font-size: 14px;
 }
+.login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.login-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-box input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.login-box button {
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.logout-btn {
+    margin-top: 10px;
+    padding: 6px;
+    background: red;
+    color: white;
+    border-radius: 6px;
+}
