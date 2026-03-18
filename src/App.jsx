@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import FoodCard from './components/FoodCard';
 import Cart from './components/Cart';
-import { foodData } from './data';
+import { foodData } from './data/data';
 import './style.css';
 
 const App = () => {
