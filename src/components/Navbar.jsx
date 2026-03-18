@@ -4,10 +4,12 @@ const Navbar = ({ setSelectedVendor }) => {
   return (
     <div className="navbar">
 
+      {/* LEFT LOGO */}
       <div className="left">
         <h2>cravee 🍔</h2>
       </div>
 
+      {/* SEARCH */}
       <div className="search-con">
         <input
           type="text"
@@ -16,27 +18,28 @@ const Navbar = ({ setSelectedVendor }) => {
         />
       </div>
 
+      {/* RIGHT SECTION */}
       <nav className="right-side">
 
-        {/* 🔥 Vendor Dropdown */}
+        {/* 🔥 Vendor Selector */}
         <select
           className="nav-item"
           onChange={(e) => setSelectedVendor(e.target.value)}
         >
           <option value="All">All</option>
-          <option value="Food Plaza">Food Plaza</option>
-          <option value="Domino's">Domino's</option>
-          <option value="Cafe">Cafe</option>
-          <option value="Subway">Subway</option>
-          <option value="Italian Hub">Italian Hub</option>
-          <option value="Snack Corner">Snack Corner</option>
-          <option value="Street Bites">Street Bites</option>
+          <option value="Nescafe">Nescafe</option>
+          <option value="Main Canteen">Main Canteen</option>
+          <option value="Tuck Shop">Tuck Shop</option>
         </select>
 
+        {/* PROFILE */}
         <span className="nav-item">👤</span>
+
+        {/* NOTIFICATION */}
         <span className="nav-item">🔔</span>
 
       </nav>
+
     </div>
   );
 };
