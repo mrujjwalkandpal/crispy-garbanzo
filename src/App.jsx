@@ -27,12 +27,18 @@ const App = () => {
 
   const addToCart = (item) => {
 
-  // 🔥 Vendor restriction
-  if (cart.length > 0 && cart[0].vendor !== item.vendor) {
-    alert("You can only order from one vendor at a time!");
-    return;
+  //vendor restrictions 
+if (cart.length > 0 && cart[0].vendor !== item.vendor) {
+  const confirmClear = window.confirm(
+    "Your cart contains items from another vendor. Clear cart and add this item?"
+  );
+
+  if (confirmClear) {
+    setCart([{ ...item, qty: 1 }]);
   }
 
+  return;
+}
   const existing = cart.find(i => i.id === item.id);
 
   if (existing) {
