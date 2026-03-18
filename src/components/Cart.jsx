@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Cart = ({ cart, user, increaseQty, decreaseQty, removeItem }) => {
+
+  const [showToast, setShowToast] = useState(false);
 
   const total = cart.reduce(
     (sum, item) => sum + item.price * item.qty,
@@ -13,7 +15,11 @@ const Cart = ({ cart, user, increaseQty, decreaseQty, removeItem }) => {
       return;
     }
 
-    alert("Order placed successfully!");
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2000);
   };
 
   return (
@@ -52,6 +58,13 @@ const Cart = ({ cart, user, increaseQty, decreaseQty, removeItem }) => {
           place order
         </button>
       </div>
+
+      {/* 🔥 TOAST */}
+      {showToast && (
+        <div className="toast">
+          ✅ Order placed successfully!
+        </div>
+      )}
     </div>
   );
 };
