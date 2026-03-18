@@ -8,20 +8,25 @@ const Navbar = ({ setSelectedVendor, user, setUser }) => {
   const [name, setName] = useState("");
   const [course, setCourse] = useState("");
 
-  // 🔥 HANDLE LOGIN
+  // 🔥 LOGIN (SAVE TO localStorage)
   const handleLogin = () => {
     if (!name || !course) {
       alert("Fill all fields");
       return;
     }
 
-    setUser({ name, course });
+    const userData = { name, course };
+
+    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
+
     setShowLogin(false);
   };
 
-  // 🔥 LOGOUT
+  // 🔥 LOGOUT (REMOVE)
   const handleLogout = () => {
     setUser(null);
+    localStorage.removeItem("user");
     setShowProfile(false);
   };
 
@@ -42,7 +47,6 @@ const Navbar = ({ setSelectedVendor, user, setUser }) => {
 
       <nav className="right-side">
 
-        {/* Vendor */}
         <select
           className="nav-item"
           onChange={(e) => setSelectedVendor(e.target.value)}
@@ -53,7 +57,6 @@ const Navbar = ({ setSelectedVendor, user, setUser }) => {
           <option value="Tuck Shop">Tuck Shop</option>
         </select>
 
-        {/* USER */}
         {user ? (
           <div className="profile-container">
             <span
@@ -87,11 +90,11 @@ const Navbar = ({ setSelectedVendor, user, setUser }) => {
 
       </nav>
 
-      {/* 🔥 LOGIN MODAL */}
+      {/* LOGIN MODAL */}
       {showLogin && (
         <div className="login-modal">
           <div className="login-box">
-            <h3>Login</h3>
+            <h3>Welcome Back 👋</h3>
 
             <input
               type="text"
@@ -108,7 +111,6 @@ const Navbar = ({ setSelectedVendor, user, setUser }) => {
             />
 
             <button onClick={handleLogin}>Submit</button>
-
             <button onClick={() => setShowLogin(false)}>Cancel</button>
           </div>
         </div>
