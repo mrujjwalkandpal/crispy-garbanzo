@@ -8,39 +8,36 @@ import './style.css';
 const App = () => {
   const [cart, setCart] = useState([]);
   const [selectedVendor, setSelectedVendor] = useState("All");
-  const [user, setUser] = useState(null); // 🔥 LOGIN STATE
 
-  // 🔥 FILTER MENU BASED ON VENDOR
+  // 🔥 LOAD USER FROM localStorage
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
   const filteredFood =
     selectedVendor === "All"
       ? foodData
       : foodData.filter(item => item.vendor === selectedVendor);
 
-  // 🔥 ADD TO CART
   const addToCart = (item) => {
     const existing = cart.find(i => i.id === item.id);
 
     if (existing) {
-      setCart(
-        cart.map(i =>
-          i.id === item.id ? { ...i, qty: i.qty + 1 } : i
-        )
-      );
+      setCart(cart.map(i =>
+        i.id === item.id ? { ...i, qty: i.qty + 1 } : i
+      ));
     } else {
       setCart([...cart, { ...item, qty: 1 }]);
     }
   };
 
-  // 🔥 INCREASE QTY
   const increaseQty = (id) => {
-    setCart(
-      cart.map(i =>
-        i.id === id ? { ...i, qty: i.qty + 1 } : i
-      )
-    );
+    setCart(cart.map(i =>
+      i.id === id ? { ...i, qty: i.qty + 1 } : i
+    ));
   };
 
-  // 🔥 DECREASE QTY
   const decreaseQty = (id) => {
     setCart(
       cart
@@ -51,7 +48,6 @@ const App = () => {
     );
   };
 
-  // 🔥 REMOVE ITEM
   const removeItem = (id) => {
     setCart(cart.filter(i => i.id !== id));
   };
@@ -59,7 +55,6 @@ const App = () => {
   return (
     <div className="main">
 
-      {/* 🔥 NAVBAR */}
       <Navbar 
         setSelectedVendor={setSelectedVendor}
         user={user}
@@ -68,7 +63,6 @@ const App = () => {
 
       <div className="contentt">
 
-        {/* LEFT SIDE */}
         <div className="c-leftt">
           <div className="menu-header">
             <h2 className="menu-title">Explore menu</h2>
@@ -86,7 +80,6 @@ const App = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE CART */}
         <Cart
           cart={cart}
           user={user}
