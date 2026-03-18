@@ -28,4 +28,3 @@ export const foodData = [
                                                                                                   image: "https://source.unsplash.com/200x200/?sandwich"
                                                                                                     }
                                                                                                     ];
-]
