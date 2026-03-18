@@ -461,3 +461,21 @@ button {
 .logout-btn:hover {
     background: #8e44ad;
 }
+
+/* 🔥 LOGIN BUTTON IN NAVBAR */
+.login-btn {
+    background-color: rgb(127, 8, 238);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+/* HOVER EFFECT */
+.login-btn:hover {
+    background-color: #8e44ad;
+    transform: translateY(-1px);
+}
