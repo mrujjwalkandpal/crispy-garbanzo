@@ -8,17 +8,22 @@ import './style.css';
 const App = () => {
   const [cart, setCart] = useState([]);
   const [selectedVendor, setSelectedVendor] = useState("All");
-
-  // 🔥 LOAD USER FROM localStorage
+  const [searchQuery, setSearchQuery] = useState(""); // 🔥 NEW
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("user");
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  const filteredFood =
-    selectedVendor === "All"
-      ? foodData
-      : foodData.filter(item => item.vendor === selectedVendor);
+  // 🔥 FILTER (vendor + search)
+  const filteredFood = foodData.filter(item => {
+    const matchVendor =
+      selectedVendor === "All" || item.vendor === selectedVendor;
+
+    const matchSearch =
+      item.name.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return matchVendor && matchSearch;
+  });
 
   const addToCart = (item) => {
     const existing = cart.find(i => i.id === item.id);
@@ -57,6 +62,7 @@ const App = () => {
 
       <Navbar 
         setSelectedVendor={setSelectedVendor}
+        setSearchQuery={setSearchQuery} // 🔥 PASS
         user={user}
         setUser={setUser}
       />
