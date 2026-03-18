@@ -14,18 +14,15 @@ const Navbar = () => {
                                                     <nav className="right-side">
                                                             <button className="nav-item" aria-label="Switch to Vendor Mode">
                                                                       <span className="icon-placeholder">⇄</span>
-                                                                                <span className="nav-label">Vendor Switch</span>
+                                                                                <span className="nav-label">Switch</span>
                                                                                         </button>
                                                                                                 <a href="/profile" className="nav-item">
-                                                                                                          <span className="icon-placeholder">⚙️</span>
-                                                                                                                    <span className="nav-label">Profile</span>
-                                                                                                                            </a>
-                                                                                                                                    <a href="/cart" className="nav-item">
-                                                                                                                                              <span className="icon-placeholder">🛒</span>
-                                                                                                                                                                                                                                                                                                                     </a>
+                                                                                                          <span className="icon-placeholder">👤</span>
+                                                                                                                                                                                                                                              </a>
+                                                                                                                                    
                                                                                                                                                                         <button className="nav-item" aria-label="Notification">
                                                                                                                                                                                   <span className="icon-placeholder">&#x1F514;</span>
-                                                                                                                                                                                            <span className="nav-label">Notification</span>
+                                                                                                                                                                                            <span className="nav-label"></span>
                                                                                                                                                                                                       <span className="badge">3</span>
                                                                                                                                                                                                               </button>
                                                                                                                                                                                                                     </nav>
