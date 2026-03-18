@@ -1,85 +1,65 @@
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import FoodCard from './components/FoodCard';
-import Cart from './components/Cart';
-import { foodData } from './data/data';
-import './style.css';
 
-const App = () => {
-  const [cart, setCart] = useState([]);
-  const [selectedVendor, setSelectedVendor] = useState("All");
-  const [user, setUser] = useState(null); // 🔥 USER STATE
+const Navbar = ({ setSelectedVendor, user }) => {
 
-  // FILTER
-  const filteredFood =
-    selectedVendor === "All"
-      ? foodData
-      : foodData.filter(item => item.vendor === selectedVendor);
-
-  // CART FUNCTIONS
-  const addToCart = (item) => {
-    const existing = cart.find(i => i.id === item.id);
-
-    if (existing) {
-      setCart(cart.map(i =>
-        i.id === item.id ? { ...i, qty: i.qty + 1 } : i
-      ));
-    } else {
-      setCart([...cart, { ...item, qty: 1 }]);
-    }
-  };
-
-  const increaseQty = (id) => {
-    setCart(cart.map(i =>
-      i.id === id ? { ...i, qty: i.qty + 1 } : i
-    ));
-  };
-
-  const decreaseQty = (id) => {
-    setCart(
-      cart
-        .map(i =>
-          i.id === id ? { ...i, qty: i.qty - 1 } : i
-        )
-        .filter(i => i.qty > 0)
-    );
-  };
-
-  const removeItem = (id) => {
-    setCart(cart.filter(i => i.id !== id));
-  };
+  const [showProfile, setShowProfile] = useState(false);
 
   return (
-    <div className="main">
-      <Navbar 
-        setSelectedVendor={setSelectedVendor}
-        user={user}
-      />
+    <div className="navbar">
 
-      <div className="contentt">
-        <div className="c-leftt">
-          <div className="menu-header">
-            <h2 className="menu-title">Explore menu</h2>
-            <p className="menu-sub">what's on your mind</p>
-          </div>
+      <div className="left">
+        <h2>cravee 🍔</h2>
+      </div>
 
-          <div className="food-grid">
-            {filteredFood.map((item) => (
-              <FoodCard key={item.id} item={item} addToCart={addToCart} />
-            ))}
-          </div>
-        </div>
-
-        <Cart
-          cart={cart}
-          user={user}
-          increaseQty={increaseQty}
-          decreaseQty={decreaseQty}
-          removeItem={removeItem}
+      <div className="search-con">
+        <input
+          type="text"
+          className="search-box"
+          placeholder="what's on your mind..."
         />
       </div>
+
+      <nav className="right-side">
+
+        {/* Vendor */}
+        <select
+          className="nav-item"
+          onChange={(e) => setSelectedVendor(e.target.value)}
+        >
+          <option value="All">All</option>
+          <option value="Nescafe">Nescafe</option>
+          <option value="Main Canteen">Main Canteen</option>
+          <option value="Tuck Shop">Tuck Shop</option>
+        </select>
+
+        {/* USER */}
+        {user ? (
+          <div className="profile-container">
+            <span
+              className="nav-item"
+              onClick={() => setShowProfile(!showProfile)}
+            >
+              👤
+            </span>
+
+            {showProfile && (
+              <div className="profile-box">
+                <p><strong>Name:</strong> {user.name}</p>
+                <p><strong>Course:</strong> {user.course}</p>
+              </div>
+            )}
+          </div>
+        ) : (
+          <button className="nav-item login-btn">
+            Login
+          </button>
+        )}
+
+        <span className="nav-item">🔔</span>
+
+      </nav>
     </div>
   );
 };
 
-export default App;
+export default Navbar;
