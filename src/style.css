@@ -329,3 +329,24 @@ button {
         height: auto;
     }
 }
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    color: #888;
+}
+
+.search-box {
+    padding-left: 35px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
