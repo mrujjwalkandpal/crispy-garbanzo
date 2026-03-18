@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Navbar = ({ setSelectedVendor, user, setUser }) => {
+const Navbar = ({ setSelectedVendor, setSearchQuery, user, setUser }) => {
 
   const [showProfile, setShowProfile] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
@@ -8,7 +8,6 @@ const Navbar = ({ setSelectedVendor, user, setUser }) => {
   const [name, setName] = useState("");
   const [course, setCourse] = useState("");
 
-  // 🔥 LOGIN (SAVE TO localStorage)
   const handleLogin = () => {
     if (!name || !course) {
       alert("Fill all fields");
@@ -23,7 +22,6 @@ const Navbar = ({ setSelectedVendor, user, setUser }) => {
     setShowLogin(false);
   };
 
-  // 🔥 LOGOUT (REMOVE)
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem("user");
@@ -37,11 +35,13 @@ const Navbar = ({ setSelectedVendor, user, setUser }) => {
         <h2>cravee 🍔</h2>
       </div>
 
+      {/* 🔥 SEARCH WORKING */}
       <div className="search-con">
         <input
           type="text"
           className="search-box"
-          placeholder="what's on your mind..."
+          placeholder="Search food..."
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
 
@@ -86,11 +86,9 @@ const Navbar = ({ setSelectedVendor, user, setUser }) => {
           </button>
         )}
 
-        <span className="nav-item">🔔</span>
-
       </nav>
 
-      {/* LOGIN MODAL */}
+      {/* LOGIN MODAL (unchanged) */}
       {showLogin && (
         <div className="login-modal">
           <div className="login-box">
